@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/*
+  RONIN & SON · global tokens
+
+  Base palette (fixed, from art direction):
+    ink    #0b0b0c  near-black charcoal
+    steel  #c9cdd1  brushed silver
+    gold   #b08d57  aged gold, rare accent
+    blood  #8c1c13  controlled red, chapter accent only, never a large fill
+*/
+@theme inline {
+  --color-ink: #0b0b0c;
+  --color-ink-2: #121214;
+  --color-steel: #c9cdd1;
+  --color-steel-dim: #8d939a;
+  --color-gold: #b08d57;
+  --color-blood: #8c1c13;
+
+  --font-display: var(--font-cormorant), "Cormorant", Georgia, serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-label: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+}
+
+/*
+  Each chapter carries its own accent temperature so the palette
+  progresses as the sword is forged: cool bar, hot forge, cool fold,
+  hard white edge, warm gold rest.
+*/
+:root {
+  --accent: #c9cdd1;
+}
+[data-chapter="hero"] {
+  --accent: #d96c2f;
+}
+[data-chapter="steel"] {
+  --accent: #7e93a3;
+}
+[data-chapter="fire"] {
+  --accent: #d96c2f;
+}
+[data-chapter="fold"] {
+  --accent: #aeb6bd;
+}
+[data-chapter="edge"] {
+  --accent: #e6e9ec;
+}
+[data-chapter="saya"] {
+  --accent: #b08d57;
+}
+
+html {
+  background: #0b0b0c;
+}
+
+body {
+  background: #0b0b0c;
+  color: #c9cdd1;
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #8c1c13;
+  color: #e6e9ec;
+}
+
+:focus-visible {
+  outline: 1px solid #b08d57;
+  outline-offset: 3px;
+}
+
+/* In the components layer so single utilities can still override. */
+@layer components {
+  /* Monospace eyebrow labels: "01 · STEEL" etc. */
+  .eyebrow {
+    font-family: var(--font-jetbrains), "JetBrains Mono", ui-monospace,
+      monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .display {
+    font-family: var(--font-cormorant), "Cormorant", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: #e6e9ec;
+  }
+
+  .body-copy {
+    font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #a7adb4;
+  }
+}
+
+/* Prevents a flash of untreated text before SplitText runs. */
+.js-reveal {
+  visibility: hidden;
+}
+html.no-js .js-reveal {
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
