@@ -48,15 +48,16 @@ export default function Saya() {
           The sword spends its life asleep.
         </h2>
 
-        {/* AI generated photograph: the finished sword at rest, the
-            wide crop keeps only the sword band through the center */}
-        <div className="saya-reveal relative mb-16 aspect-[2/1] w-full overflow-hidden md:aspect-[3/1]">
+        {/* AI generated photograph: the finished sword at rest. A
+            gentler crop than a full banner keeps enough space around
+            the blade that its natural curve doesn't read as bent */}
+        <div className="saya-reveal relative mb-16 aspect-[4/3] w-full overflow-hidden md:aspect-[21/9]">
           <Image
             src="/images/saya-rest.jpg"
             alt="The finished katana resting in its red lacquered sheath"
             fill
             sizes="(min-width: 768px) 64rem, 100vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
         </div>
 
@@ -81,8 +82,17 @@ export default function Saya() {
           </div>
           <div className="eyebrow leading-loose opacity-40">
             <p>A story in five chapters</p>
-            <p>Type set in Cormorant, Inter and JetBrains Mono</p>
-            <p>A fictional house. Imagery generated, no swords were forged</p>
+            <p>
+              Fictional site created by{" "}
+              <a
+                href="https://www.tuwebsv.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-white/30 underline-offset-2 opacity-100 transition-opacity hover:opacity-70"
+              >
+                Tommy
+              </a>
+            </p>
           </div>
         </div>
       </footer>

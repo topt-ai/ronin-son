@@ -25,7 +25,8 @@ export default function Hero() {
         ctx.add(() => {
           const split = SplitText.create(".hero-headline", {
             type: "lines,words,chars",
-            linesClass: "overflow-hidden",
+            linesClass: "hero-line overflow-hidden",
+            charsClass: "hero-char",
           });
           gsap.set(".js-reveal", { visibility: "visible" });
 
@@ -98,7 +99,7 @@ export default function Hero() {
         <p className="hero-eyebrow eyebrow js-reveal mb-8">
           Ronin &amp; Son · Est. Forge
         </p>
-        <h1 className="hero-headline display js-reveal max-w-5xl text-[13.5vw] leading-[0.98] md:text-[7.5vw]">
+        <h1 className="hero-headline display js-reveal max-w-5xl text-[13.5vw] leading-[1.14] md:text-[7.5vw]">
           Some things are still made by hand.
         </h1>
         <p className="hero-sub body-copy js-reveal mt-8 max-w-md">
