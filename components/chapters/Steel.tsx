@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap, MM_CONDITIONS } from "@/lib/gsap";
-import { SteelRaw, SteelWelded, SteelFolded } from "@/components/art/SteelArt";
 
 /**
  * Chapter 01 · STEEL. Pinned section: the plain bar crossfades through
@@ -86,15 +86,35 @@ export default function Steel() {
       className="relative flex min-h-svh items-center overflow-hidden bg-ink"
     >
       <div className="grid w-full items-center gap-10 px-6 py-24 md:grid-cols-[3fr_2fr] md:gap-16 md:px-16">
-        <div className="steel-stack relative aspect-[15/8] w-full">
+        {/* AI generated photographs, shot to share framing so the
+            crossfade reads as one bar transforming */}
+        <div className="steel-stack relative aspect-[3/2] w-full overflow-hidden">
           <div data-steel="1" className="absolute inset-0">
-            <SteelRaw />
+            <Image
+              src="/images/steel-raw.jpg"
+              alt="A raw bar of tamahagane steel on dark slate"
+              fill
+              sizes="(min-width: 768px) 60vw, 100vw"
+              className="object-cover"
+            />
           </div>
           <div data-steel="2" className="absolute inset-0">
-            <SteelWelded />
+            <Image
+              src="/images/steel-welded.jpg"
+              alt="The billet after its first forge welds"
+              fill
+              sizes="(min-width: 768px) 60vw, 100vw"
+              className="object-cover"
+            />
           </div>
           <div data-steel="3" className="absolute inset-0">
-            <SteelFolded />
+            <Image
+              src="/images/steel-folded.jpg"
+              alt="Folded damascus steel showing dense layered strata"
+              fill
+              sizes="(min-width: 768px) 60vw, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
 

@@ -45,6 +45,10 @@
 [data-chapter="edge"] {
   --accent: #e6e9ec;
 }
+/* the blood red, lifted just enough to stay readable as a label */
+[data-chapter="work"] {
+  --accent: #b04038;
+}
 [data-chapter="saya"] {
   --accent: #b08d57;
 }

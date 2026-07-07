@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap, ScrollTrigger, SplitText, MM_CONDITIONS } from "@/lib/gsap";
-import ForgeArt from "@/components/art/ForgeArt";
 
 /**
  * Chapter 02 · FIRE. Full-bleed pinned section. The forge glow deepens
@@ -94,10 +94,38 @@ export default function Fire() {
       className="relative flex min-h-svh items-center justify-center overflow-hidden"
     >
       <div className="fire-art absolute inset-0">
-        <ForgeArt />
+        {/* AI generated photograph: bar at heat beside the forge fire */}
+        <Image
+          src="/images/fire-blade.jpg"
+          alt="Steel glowing yellow hot beside the forge fire"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        {/* sparks, drifted upward by GSAP via .spark */}
+        <svg
+          aria-hidden
+          className="absolute inset-0 h-full w-full"
+          viewBox="0 0 1200 800"
+        >
+          <g fill="#f4a648">
+            {[
+              [180, 560, 2.0],
+              [300, 610, 1.4],
+              [420, 570, 2.4],
+              [250, 640, 1.2],
+              [520, 620, 1.6],
+              [660, 650, 1.3],
+              [370, 520, 1.8],
+              [590, 560, 1.1],
+            ].map(([x, y, r], i) => (
+              <circle key={i} className="spark" cx={x} cy={y} r={r} opacity={0.9} />
+            ))}
+          </g>
+        </svg>
       </div>
       {/* keeps the passage readable over the glow */}
-      <div className="absolute inset-0 bg-ink/35" />
+      <div className="absolute inset-0 bg-ink/45" />
 
       <div className="relative z-10 max-w-3xl px-6 text-center md:px-10">
         <p className="fire-eyebrow eyebrow mb-8">02 · Fire</p>

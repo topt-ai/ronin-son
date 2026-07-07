@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap, MM_CONDITIONS } from "@/lib/gsap";
-import SayaArt from "@/components/art/SayaArt";
 
 /**
  * Chapter 05 · SAYA. The calm close: sword at rest, gold returns,
@@ -48,8 +48,16 @@ export default function Saya() {
           The sword spends its life asleep.
         </h2>
 
-        <div className="saya-reveal mb-16">
-          <SayaArt />
+        {/* AI generated photograph: the finished sword at rest, the
+            wide crop keeps only the sword band through the center */}
+        <div className="saya-reveal relative mb-16 aspect-[2/1] w-full overflow-hidden md:aspect-[3/1]">
+          <Image
+            src="/images/saya-rest.jpg"
+            alt="The finished katana resting in its red lacquered sheath"
+            fill
+            sizes="(min-width: 768px) 64rem, 100vw"
+            className="object-cover"
+          />
         </div>
 
         <p className="saya-reveal body-copy mx-auto max-w-md">
@@ -74,7 +82,7 @@ export default function Saya() {
           <div className="eyebrow leading-loose opacity-40">
             <p>A story in five chapters</p>
             <p>Type set in Cormorant, Inter and JetBrains Mono</p>
-            <p>All imagery is placeholder for photography</p>
+            <p>A fictional house. Imagery generated, no swords were forged</p>
           </div>
         </div>
       </footer>

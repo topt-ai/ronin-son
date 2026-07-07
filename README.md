@@ -22,6 +22,7 @@ Portfolio / demo build. Not a real client.
 | 02 | Fire | Pinned full bleed forge glow, passage reveals character by character |
 | 03 | Fold | Pinned diagram, fold and layer counters climb to 15 / 32,768 |
 | 04 | Edge | Pinned scrubbed zoom from full blade to extreme macro of the edge |
+| · | The Work | Pinned interlude: three finished swords pass through the dark |
 | 05 | Saya | Calm one time reveals, signature close, no pin |
 
 ## Motion rules
@@ -33,9 +34,10 @@ Portfolio / demo build. Not a real client.
 
 ## Imagery
 
-All artwork is procedural SVG standing in for photography. Every art
-component under `components/art/` starts with a PLACEHOLDER comment
-describing the real shot that should replace it.
+Photographs in `public/images/` are AI generated for this fictional
+house and served through `next/image`. The Chapter 03 fold diagram
+stays illustrated on purpose: its strata are driven by the scroll
+counter, layered over a real damascus texture.
 
 ## Run
 

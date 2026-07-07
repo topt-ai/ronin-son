@@ -3,6 +3,7 @@ import Steel from "@/components/chapters/Steel";
 import Fire from "@/components/chapters/Fire";
 import Fold from "@/components/chapters/Fold";
 import Edge from "@/components/chapters/Edge";
+import Work from "@/components/chapters/Work";
 import Saya from "@/components/chapters/Saya";
 import BrushDivider from "@/components/BrushDivider";
 import ChapterMarker from "@/components/ChapterMarker";
@@ -21,6 +22,8 @@ export default function Home() {
       <BrushDivider flip />
       <Edge />
       <BrushDivider />
+      <Work />
+      <BrushDivider flip />
       <Saya />
     </main>
   );

@@ -1,38 +1,28 @@
-/*
-  Chapter 00 · HERO placeholder art.
+import Image from "next/image";
 
-  PLACEHOLDER: replace with a full-bleed photograph or short loop of
-  forge fire / glowing metal, very dark overall, embers rising. The
-  gradient field below stands in for it and keeps the type readable;
-  keep any replacement equally dark at the top third.
+/*
+  Chapter 00 · HERO background: AI generated photograph of a glowing
+  bar beside the forge fire. Scrims keep the headline legible over
+  the flames in the lower left.
 */
 
 export default function HeroArt() {
   return (
     <div aria-hidden className="absolute inset-0 overflow-hidden">
-      {/* deep field */}
-      <div className="absolute inset-0 bg-ink" />
-      {/* ember glow rising from below the fold */}
+      <Image
+        src="/images/hero-forge.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[30%_center]"
+      />
+      {/* legibility scrim: enough for the headline, keeps the fire alive */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 80% at 50% 118%, rgba(232,147,58,0.34) 0%, rgba(140,28,19,0.30) 32%, rgba(20,10,8,0.1) 62%, transparent 78%)",
-        }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(55% 38% at 52% 112%, rgba(255,217,160,0.28) 0%, transparent 70%)",
-        }}
-      />
-      {/* anvil silhouette line, barely there */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-40"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(5,5,6,0.95), transparent)",
+            "linear-gradient(to top, rgba(11,11,12,0.72) 0%, rgba(11,11,12,0.34) 34%, rgba(11,11,12,0.08) 62%, rgba(11,11,12,0.35) 100%)",
         }}
       />
       {/* embers, drifted upward by GSAP via .ember */}

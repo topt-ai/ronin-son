@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap, MM_CONDITIONS } from "@/lib/gsap";
 import FoldDiagram from "@/components/art/FoldDiagram";
@@ -94,7 +95,16 @@ export default function Fold() {
       data-marker="03 · FOLD"
       className="relative flex min-h-svh items-center overflow-hidden bg-ink-2"
     >
-      <div className="grid w-full items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-10 md:px-16">
+      {/* real damascus texture, barely there behind the drafting */}
+      <Image
+        src="/images/fold-texture.jpg"
+        alt=""
+        aria-hidden
+        fill
+        sizes="100vw"
+        className="object-cover opacity-[0.14]"
+      />
+      <div className="relative grid w-full items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-10 md:px-16">
         <div>
           <FoldDiagram folds={folds} />
         </div>

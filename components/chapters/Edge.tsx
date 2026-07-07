@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap, MM_CONDITIONS } from "@/lib/gsap";
-import { BladeFull, BladeMacro, ZOOM_ORIGIN } from "@/components/art/EdgeArt";
+
+/*
+  Transform origin for the scroll zoom, tuned to the actual photo:
+  in edge-full.jpg the hamon detail the macro continues sits about
+  72% along the blade, at mid height.
+*/
+const ZOOM_ORIGIN = "72% 50%";
 
 /**
  * Chapter 04 · EDGE. The signature moment: a pinned, scrubbed zoom
@@ -78,11 +85,25 @@ export default function Edge() {
       className="relative min-h-svh overflow-hidden bg-[#050506]"
     >
       <div className="edge-stacked relative flex min-h-svh flex-col justify-center">
-        <div className="edge-full absolute inset-0 max-md:relative max-md:aspect-[12/7]">
-          <BladeFull />
+        {/* AI generated photographs: the macro continues the same
+            region of the blade the zoom drives toward */}
+        <div className="edge-full absolute inset-0 max-md:relative max-md:aspect-[3/2]">
+          <Image
+            src="/images/edge-full.jpg"
+            alt="A polished katana blade rim lit on black"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
-        <div className="edge-macro absolute inset-0 max-md:mt-6 max-md:aspect-[12/7]">
-          <BladeMacro />
+        <div className="edge-macro absolute inset-0 max-md:mt-6 max-md:aspect-[3/2]">
+          <Image
+            src="/images/edge-macro.jpg"
+            alt="Extreme macro of the hamon and hardened edge"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
 
         <div className="edge-caption-a pointer-events-none absolute inset-x-0 top-[16%] z-10 text-center max-md:relative max-md:top-0 max-md:order-first max-md:mb-10 max-md:px-6">
@@ -91,8 +112,7 @@ export default function Edge() {
         </div>
 
         <div className="edge-caption-b pointer-events-none absolute inset-x-0 bottom-[12%] z-10 px-6 text-center max-md:relative max-md:bottom-0 max-md:mt-10">
-          {/* dark ink on desktop: it overlays the bright edge steel */}
-          <p className="body-copy mx-auto max-w-md md:font-normal md:text-[#232a30]">
+          <p className="body-copy mx-auto max-w-md text-[#c9cdd1]">
             The hamon marks where hard steel meets soft. One blade, two
             tempers, ground until light has nothing left to hold on to.
           </p>
